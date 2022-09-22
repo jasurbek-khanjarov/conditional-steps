@@ -26,6 +26,11 @@ jobs:
             equal: [ "main", << pipeline.git.branch >> ]
           steps:
             - prod
+      - when:
+          condition:
+            equal: [ "develop", << pipeline.git.branch >> ]
+          steps:
+            - dev
             
 workflows:
   test-workflow:
