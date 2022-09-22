@@ -20,20 +20,13 @@ commands:
 jobs:
   test-job:
     docker:
-      - image: cimg/node:18.9.0
+      - image: cimg/base:2022.09
      steps:
       - when:
           condition:
             equal: [ "dev", << pipeline.paramaters.job_env >> ]
           steps:
             - dev
-      - when:
-          condition:
-            equal: [ "prod", << pipeline.paramaters.job_env >> ]
-          steps:
-            - prod
-    
-
 workflows:
   test-workflow:
     jobs:
