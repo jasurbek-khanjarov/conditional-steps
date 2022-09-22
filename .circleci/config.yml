@@ -23,9 +23,9 @@ jobs:
     steps:
       - when:
           condition:
-            equal: [ "dev", << pipeline.paramaters.job_env >> ]
+            equal: [ "main" << pipeline.git.branch >> ]
           steps:
-            - dev
+            - prod
             
 workflows:
   test-workflow:
