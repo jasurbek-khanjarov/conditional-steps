@@ -1,7 +1,7 @@
 version: 2.1
 
 parameters:
-  job-env:
+  job_env:
     type: string
     default: "dev"
 
