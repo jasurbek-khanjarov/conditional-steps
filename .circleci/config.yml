@@ -1,0 +1,41 @@
+version: 2.1
+
+parameters:
+  job-env:
+    type: string
+    default: "dev"
+
+commands:
+  dev:
+    description: "Dev env"
+    steps:
+      - run: echo Hello World from Dev env
+      
+  prod:
+    description: "Dev env"
+    steps:
+      - run: echo Hello World from Dev env
+
+
+jobs:
+  test-job:
+    docker:
+      - image: cimg/node:18.9.0
+     steps:
+      - when:
+          condition:
+            equal: [ "dev", << pipeline.paramaters.job_env >> ]
+          steps:
+            - dev
+      - when:
+          condition:
+            equal: [ "prod", << pipeline.paramaters.job_env >> ]
+          steps:
+            - prod
+    
+
+workflows:
+  test-workflow:
+    jobs:
+      - test-job
+  
