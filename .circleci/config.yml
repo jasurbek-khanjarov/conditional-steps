@@ -15,17 +15,18 @@ commands:
     description: "Dev env"
     steps:
       - run: echo Hello World from Dev env
-
+      
 jobs:
   build:
     docker:
       - image: cimg/base:2022.09
-     steps:
+    steps:
       - when:
           condition:
             equal: [ "dev", << pipeline.paramaters.job_env >> ]
           steps:
             - dev
+            
 workflows:
   test-workflow:
     jobs:
