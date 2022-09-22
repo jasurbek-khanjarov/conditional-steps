@@ -12,9 +12,9 @@ commands:
       - run: echo Hello World from Dev env
       
   prod:
-    description: "Dev env"
+    description: "Prod env"
     steps:
-      - run: echo Hello World from Dev env
+      - run: echo Hello World from Prod env
       
 jobs:
   build:
