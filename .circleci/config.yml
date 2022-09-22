@@ -16,9 +16,8 @@ commands:
     steps:
       - run: echo Hello World from Dev env
 
-
 jobs:
-  test-job:
+  build:
     docker:
       - image: cimg/base:2022.09
      steps:
@@ -30,5 +29,5 @@ jobs:
 workflows:
   test-workflow:
     jobs:
-      - test-job
+      - build
   
